@@ -1,11 +1,13 @@
 package com.nickperov.stud.micro_notes_quarkus.api;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.UUID;
 
 public class NoteDTO implements Note {
 
-  // Constructor for JSON deserialization
-  private NoteDTO(final UUID id, final String text) {
+  @JsonCreator
+  private NoteDTO(@JsonProperty("id") final UUID id, @JsonProperty("text") final String text) {
     this.id = id;
     this.text = text;
   }
